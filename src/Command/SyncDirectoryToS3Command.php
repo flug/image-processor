@@ -7,6 +7,7 @@ namespace Clooder\Command;
 use League\Flysystem\AdapterInterface;
 use League\Flysystem\MountManager;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
@@ -16,12 +17,14 @@ class SyncDirectoryToS3Command extends ContainerAwareConsole
 
     protected function configure()
     {
-        $this->setName('sync:directory');
+        $this->setName('sync:directory')
+            ->addOption('directory', 'd', InputOption::VALUE_REQUIRED);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $directory = '/tmp/images';
+
+        $directory = $input->getOption('directory');
 
         $container = $this->getContainer();
 
