@@ -1,0 +1,9 @@
+services:
+    notify:
+        class: Clooder\Notify\INotifywait
+        public: false
+    file.notify:
+        class: Clooder\Notify\FileNotify
+        arguments:
+            - '@notify'
+

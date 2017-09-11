@@ -1,0 +1,49 @@
+{
+    "name": "Clooder/image-processor",
+    "description": "process image and send on S3 cdn",
+    "type": "project",
+    "require": {
+        "symfony/console": "^3.3",
+        "intervention/image": "^2.4",
+        "incenteev/composer-parameter-handler": "^2.1",
+        "symfony/filesystem": "^3.3",
+        "symfony/finder": "^3.3",
+        "symfony/dependency-injection": "^3.3",
+        "symfony/config": "3.4.x-dev",
+        "symfony/process": "3.4.x-dev",
+        "league/flysystem": "^1.1@dev",
+        "league/flysystem-aws-s3-v3": "^1.0@dev"
+    },
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Flug",
+            "email": "flugv1@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Clooder\\": "src/"
+        },
+        "files": [
+            "kernel/AppKernel.php"
+        ]
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
+        ]
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "incenteev-parameters": {
+            "file": "config/parameters.yml"
+        }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "3.4.x-dev"
+    }
+}

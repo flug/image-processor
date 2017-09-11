@@ -1,0 +1,7 @@
+parameters:
+    image_driver: imagick   #gd
+    s3_key: ~
+    s3_secret: ~
+    region: ~
+    version: ~
+    bucket_name: ~

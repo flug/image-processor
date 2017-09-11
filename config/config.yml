@@ -1,0 +1,23 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: services.yml }
+
+app:
+    image_processor:
+        driver: %image_driver%
+        profiles:
+            property:
+                - {width: 1600, height: null, quality: 100 }
+                - {width: 1280, height: null, quality: 100 }
+                - {width: 900, height: null, quality: 100 }
+                - {width: 600, height: null, quality: 100 }
+                - {width: 420, height: null, quality: 100 }
+                - {width: 300, height: null, quality: 100 }
+    s3_client:
+        credentials:
+            key: %s3_key%
+            secret: %s3_secret%
+        bucket_name: %bucket_name%
+        region: %region%
+        version: %version%
+
