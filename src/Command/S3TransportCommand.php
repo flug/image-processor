@@ -28,7 +28,7 @@ class S3TransportCommand extends ContainerAwareConsole
 
         $container->get('file.notify')->loop($directoryWatch, function ($buffer) use ($fs, $directoryWatch, $output) {
             $pathFile = substr($buffer['path'], strlen($directoryWatch) + 1);
-            if (!file_exists($buffer['path']) || is_dir($buffer['path'])) {
+            if (!file_exists($buffer['path']) || is_dir($buffer['path']) || !is_readable($buffer['path'])) {
                 return;
             }
 
